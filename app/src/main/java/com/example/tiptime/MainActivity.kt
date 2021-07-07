@@ -17,8 +17,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.calculateButton.setOnClickListener{ calculateTip() }
-        binding.costOfServiceEditText.setOnKeyListener{ view, keyCode, _-> handleKeyEvent(view, keyCode)}
+        binding.calculateButton.setOnClickListener { calculateTip() }
+        binding.costOfServiceEditText.setOnKeyListener { view, keyCode, _ ->
+            handleKeyEvent(
+                view,
+                keyCode
+            )
+        }
     }
 
     private fun calculateTip() {
@@ -39,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         if (binding.roundUpSwitch.isChecked) {
             tip = kotlin.math.ceil(tip)
         }
-    displayTip(tip)
+        displayTip(tip)
     }
 
     private fun displayTip(tip: Double) {
